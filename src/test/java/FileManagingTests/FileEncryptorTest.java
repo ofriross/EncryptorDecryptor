@@ -1,9 +1,9 @@
 package FileManagingTests;
 
+import encryptionAlgorithms.basicEncryptions.ShiftUpEncryption;
 import fileManaging.FileEncryptor;
 import fileManaging.FileOperations;
 import general.Constants;
-import encryptionAlgorithms.basicEncryptions.ShiftUpEncryption;
 import org.junit.Test;
 
 import java.io.IOException;

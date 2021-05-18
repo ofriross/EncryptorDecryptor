@@ -1,8 +1,8 @@
 package EncriptionsTests;
 
-import keys.SingleKey;
 import encryptionAlgorithms.basicEncryptions.BasicEncryption;
 import enums.EActionEncryptOrDecrypt;
+import keys.SingleKey;
 import org.junit.Test;
 import org.mockito.Mockito;
 

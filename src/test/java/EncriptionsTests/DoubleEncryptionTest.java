@@ -1,8 +1,8 @@
 package EncriptionsTests;
 
-import keys.DoubleKey;
-import encryptionAlgorithms.complexEncryptions.DoubleEncryption;
 import encryptionAlgorithms.IEncryptionAlgorithm;
+import encryptionAlgorithms.complexEncryptions.DoubleEncryption;
+import keys.DoubleKey;
 import org.junit.Test;
 import org.mockito.Mockito;
 

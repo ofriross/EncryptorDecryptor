@@ -2,8 +2,8 @@ package enums;
 
 import encryptionAlgorithms.IEncryptionAlgorithm;
 import logs.EventException;
-import logs.EventProcessDebug;
 import logs.EventProcess;
+import logs.EventProcessDebug;
 
 import java.util.Optional;
 

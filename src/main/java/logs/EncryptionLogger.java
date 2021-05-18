@@ -1,7 +1,10 @@
 package logs;
 
 import encryptionAlgorithms.IEncryptionAlgorithm;
-import enums.*;
+import enums.EActionEncryptOrDecrypt;
+import enums.EEventType;
+import enums.EInputType;
+import enums.EProgress;
 
 import java.util.HashMap;
 import java.util.Optional;

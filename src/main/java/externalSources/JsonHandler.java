@@ -18,10 +18,6 @@ public class JsonHandler extends IExternalFileSourceHandler {
     private long timeEnded;
     private long totalTime;
 
-    public String tester(EncryptionDecryptionInfo encryptionDecryptionInfo) {
-        return encryptionDecryptionInfo.toString();
-    }
-
     public JsonHandler() {
     }
 
@@ -29,6 +25,10 @@ public class JsonHandler extends IExternalFileSourceHandler {
         String reader = FileOperations.readFile(filename);
         JSONParser jsonParser = new JSONParser();
         return jsonParser.parse(reader);
+    }
+
+    public String tester(EncryptionDecryptionInfo encryptionDecryptionInfo) {
+        return encryptionDecryptionInfo.toString();
     }
 
     @Override

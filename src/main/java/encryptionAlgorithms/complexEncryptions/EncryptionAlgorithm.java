@@ -6,8 +6,6 @@ import keys.Key;
 import javax.inject.Inject;
 
 public abstract class EncryptionAlgorithm implements IEncryptionAlgorithm {
-    protected Key key;
-    protected IEncryptionAlgorithm encryptionAlgorithm;
     public static Class<?> TYPE;
 
     static {
@@ -16,6 +14,13 @@ public abstract class EncryptionAlgorithm implements IEncryptionAlgorithm {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    protected Key key;
+    protected IEncryptionAlgorithm encryptionAlgorithm;
+
+    public EncryptionAlgorithm(IEncryptionAlgorithm encryptionAlgorithm) {
+        this.encryptionAlgorithm = encryptionAlgorithm;
     }
 
     @Override
@@ -28,13 +33,9 @@ public abstract class EncryptionAlgorithm implements IEncryptionAlgorithm {
         return key.getType();
     }
 
-    public EncryptionAlgorithm(IEncryptionAlgorithm encryptionAlgorithm) {
-        this.encryptionAlgorithm = encryptionAlgorithm;
-    }
-
     @Inject
-    public void setEncryptionAlgorithm(IEncryptionAlgorithm encryptionAlgorithm){
+    public void setEncryptionAlgorithm(IEncryptionAlgorithm encryptionAlgorithm) {
         System.out.println("heyo out");
-        this.encryptionAlgorithm=encryptionAlgorithm;
+        this.encryptionAlgorithm = encryptionAlgorithm;
     }
 }

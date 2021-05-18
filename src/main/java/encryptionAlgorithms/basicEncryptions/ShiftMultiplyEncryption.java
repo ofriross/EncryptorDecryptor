@@ -1,8 +1,8 @@
 package encryptionAlgorithms.basicEncryptions;
 
+import enums.EActionEncryptOrDecrypt;
 import general.Constants;
 import keys.Key;
-import enums.EActionEncryptOrDecrypt;
 
 public class ShiftMultiplyEncryption extends BasicEncryption {
     @Override

@@ -1,8 +1,8 @@
 package EncriptionsTests;
 
-import keys.RepeatKey;
 import encryptionAlgorithms.IEncryptionAlgorithm;
 import encryptionAlgorithms.complexEncryptions.RepeatEncryption;
+import keys.RepeatKey;
 import org.junit.Test;
 import org.mockito.Mockito;
 

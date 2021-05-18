@@ -1,11 +1,11 @@
 package multiThreading;
 
-import fileManaging.FileEncryptor;
-import general.Constants;
 import enums.EActionEncryptOrDecrypt;
 import enums.EEventType;
 import enums.EInputType;
 import enums.EProgress;
+import fileManaging.FileEncryptor;
+import general.Constants;
 import logs.EncryptionLogger;
 
 import java.io.IOException;

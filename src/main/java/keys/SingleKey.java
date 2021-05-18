@@ -5,17 +5,17 @@ import general.Constants;
 import java.util.Random;
 
 public class SingleKey extends Key {
-    private int value;
+    // TODO: 18/05/2021 Make enum
     private final String encryptionType;
-
-    public int getValue() {
-        return value;
-    }
+    private int value;
 
     public SingleKey(String encryptionType) {
         this.encryptionType = encryptionType;
-        Random r = new Random();
-        value = r.nextInt(Constants.MAX_ASCII_VALUE) + 1;
+        value = new Random().nextInt(Constants.MAX_ASCII_VALUE) + 1;
+    }
+
+    public int getValue() {
+        return value;
     }
 
     @Override

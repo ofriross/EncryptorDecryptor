@@ -10,6 +10,17 @@ import java.util.Random;
 public class RepeatEncryption extends EncryptionAlgorithm {
     private final int timesToRepeat;
 
+    public RepeatEncryption(IEncryptionAlgorithm encryptionAlgorithm, int timesToRepeat) {
+        super(encryptionAlgorithm);
+        this.timesToRepeat = timesToRepeat;
+    }
+
+    public RepeatEncryption(IEncryptionAlgorithm encryptionAlgorithm) {
+        super(encryptionAlgorithm);
+        Random r = new Random();
+        timesToRepeat = r.nextInt(10) + 1;
+    }
+
     @Override
     public Key initKey() {
         return key = new RepeatKey(timesToRepeat, encryptionAlgorithm.initKey());
@@ -24,18 +35,9 @@ public class RepeatEncryption extends EncryptionAlgorithm {
         return encryption;
     }
 
+    // TODO: 18/05/2021 Put it in the father class
     @Override
     public String performDecryption(String data, ArrayList<Integer> keys) {
         return encryptionAlgorithm.performDecryption(data, keys);
-    }
-
-    public RepeatEncryption(IEncryptionAlgorithm encryptionAlgorithm, int timesToRepeat) {
-        super(encryptionAlgorithm);
-        this.timesToRepeat = timesToRepeat;
-    }
-    public RepeatEncryption(IEncryptionAlgorithm encryptionAlgorithm) {
-        super(encryptionAlgorithm);
-        Random r = new Random();
-        timesToRepeat = r.nextInt(10) + 1;
     }
 }

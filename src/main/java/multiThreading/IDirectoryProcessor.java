@@ -5,13 +5,13 @@ import enums.EActionEncryptOrDecrypt;
 import enums.EEventType;
 import enums.EInputType;
 import enums.EProgress;
+import externalSources.EncryptionDecryptionInfo;
 import externalSources.JsonHandler;
+import externalSources.XmlHandler;
 import fileManaging.FileEncryptor;
 import fileManaging.FileOperations;
 import general.Constants;
 import logs.EncryptionLogger;
-import externalSources.EncryptionDecryptionInfo;
-import externalSources.XmlHandler;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -22,8 +22,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public interface IDirectoryProcessor {
-    void encryptAndDecryptFolder(Optional<Integer> numberOfThreads, String directoryPath, IEncryptionAlgorithm encryptionAlgorithm);
-
     static void encryptAndDecryptFolderDoer(int numberOfThreads, String directoryPath, IEncryptionAlgorithm encryptionAlgorithm) {
         long startTime = new Date().getTime();
 
@@ -83,11 +81,13 @@ public interface IDirectoryProcessor {
                     Path.of(directoryPath, Constants.ENCRYPT_FOLDER_NAME).toString(),
                     Path.of(directoryPath, Constants.DECRYPT_FOLDER_NAME).toString(),
                     startTime, endTime);
-            new XmlHandler().writeOutputData(encryptionDecryptionInfo,"output data");
-            new JsonHandler().writeOutputData(encryptionDecryptionInfo,"output data");
+            new XmlHandler().writeOutputData(encryptionDecryptionInfo, "output data");
+            new JsonHandler().writeOutputData(encryptionDecryptionInfo, "output data");
         } catch (IOException exception) {
             exception.printStackTrace();
         }
         System.out.println("The encryption and the decryption took in total " + (endTime - startTime) + "(milliseconds) with the ASynced Processor.");
     }
+
+    void encryptAndDecryptFolder(Optional<Integer> numberOfThreads, String directoryPath, IEncryptionAlgorithm encryptionAlgorithm);
 }

@@ -1,12 +1,8 @@
 package fileManaging;
 
 public class FileNameAndContent {
-    private String fileName;
+    private final String fileName;
     private String fileContent;
-
-    public void setFileContent(String fileContent) {
-        this.fileContent = fileContent;
-    }
 
     public FileNameAndContent(String fileName, String fileContent) {
         this.fileName = fileName;
@@ -27,5 +23,9 @@ public class FileNameAndContent {
 
     public String getFileContent() {
         return fileContent;
+    }
+
+    public void setFileContent(String fileContent) {
+        this.fileContent = fileContent;
     }
 }

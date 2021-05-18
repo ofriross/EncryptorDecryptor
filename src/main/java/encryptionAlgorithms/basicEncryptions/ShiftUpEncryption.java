@@ -1,7 +1,7 @@
 package encryptionAlgorithms.basicEncryptions;
 
-import keys.Key;
 import enums.EActionEncryptOrDecrypt;
+import keys.Key;
 
 public class ShiftUpEncryption extends BasicEncryption {
 

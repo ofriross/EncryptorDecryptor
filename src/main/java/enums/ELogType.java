@@ -1,6 +1,5 @@
 package enums;
 
-import logs.EncryptionLog4jLogger;
 import org.apache.log4j.Logger;
 
 public enum ELogType {

@@ -1,9 +1,9 @@
 package keys;
 
 public class DoubleKey extends Key {
-    private Key double1;
+    private final Key double1;
 
-    private Key double2;
+    private final Key double2;
 
     public DoubleKey(Key double1, Key double2) {
         this.double1 = double1;
