@@ -1,6 +1,10 @@
 package general;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import encryptionAlgorithms.EncryptionInjector;
 import encryptionAlgorithms.IEncryptionAlgorithm;
+import encryptionAlgorithms.complexEncryptions.DoubleEncryption;
 import encryptionAlgorithms.complexEncryptions.EncryptionAlgorithm;
 import externalSources.InputData;
 import externalSources.JsonHandler;
@@ -34,6 +38,10 @@ public class Main {
         IEncryptionAlgorithm encryptionAlgorithm = getIEncryptionAlgorithm(inputDataFromJson);
         if (encryptionAlgorithm == null)
             return;
+
+        Injector injector = Guice.createInjector(new EncryptionInjector());
+
+        encryptionAlgorithm = injector.getInstance(DoubleEncryption.class);
 
         new ASyncDirectoryProcessor().encryptAndDecryptFolder(Optional.of(10), directory, encryptionAlgorithm);
         System.out.println();

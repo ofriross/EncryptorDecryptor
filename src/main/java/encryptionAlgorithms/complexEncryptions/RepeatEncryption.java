@@ -1,7 +1,6 @@
 package encryptionAlgorithms.complexEncryptions;
 
 import encryptionAlgorithms.IEncryptionAlgorithm;
-import general.Constants;
 import keys.Key;
 import keys.RepeatKey;
 
@@ -11,10 +10,12 @@ import java.util.Random;
 public class RepeatEncryption extends EncryptionAlgorithm {
     private final int timesToRepeat;
 
+    @Override
     public Key initKey() {
         return key = new RepeatKey(timesToRepeat, encryptionAlgorithm.initKey());
     }
 
+    @Override
     public <T extends Key> String performEncryption(String data, T key) {
         String encryption = encryptionAlgorithm.performEncryption(data, ((RepeatKey) key).getRepeatedKey());
         for (int i = 0; i < timesToRepeat - 1; i++) {
@@ -23,6 +24,7 @@ public class RepeatEncryption extends EncryptionAlgorithm {
         return encryption;
     }
 
+    @Override
     public String performDecryption(String data, ArrayList<Integer> keys) {
         return encryptionAlgorithm.performDecryption(data, keys);
     }

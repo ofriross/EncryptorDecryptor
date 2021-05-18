@@ -17,6 +17,7 @@ public class RepeatKey extends Key {
         this.repeatedKey = repeatedKey;
     }
 
+    @Override
     public String toString() {
         StringBuilder total = new StringBuilder(repeatedKey.toString());
         String base = repeatedKey.toString();
@@ -25,14 +26,17 @@ public class RepeatKey extends Key {
         return total.toString();
     }
 
+    @Override
     public int getKeyStrength() {
         return repeatN * repeatedKey.getKeyStrength();
     }
 
+    @Override
     public String getType() {
         return "Repeat of " + repeatN + " times of " + repeatedKey.getType();
     }
 
+    @Override
     public void getNextKey() {
         repeatedKey.getNextKey();
     }

@@ -18,6 +18,7 @@ public class DoubleKey extends Key {
         return double2;
     }
 
+    @Override
     public String toString() {
         return double1 + "," + double2;
     }
@@ -27,14 +28,17 @@ public class DoubleKey extends Key {
         return super.clone();
     }
 
+    @Override
     public int getKeyStrength() {
         return double1.getKeyStrength() + double2.getKeyStrength();
     }
 
+    @Override
     public String getType() {
         return "Double of " + double1.getType();
     }
 
+    @Override
     public void getNextKey() {
         double1.getNextKey();
     }

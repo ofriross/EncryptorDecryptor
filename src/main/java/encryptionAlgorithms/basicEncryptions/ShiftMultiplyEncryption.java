@@ -5,10 +5,12 @@ import keys.Key;
 import enums.EActionEncryptOrDecrypt;
 
 public class ShiftMultiplyEncryption extends BasicEncryption {
+    @Override
     public Key initKey() {
-        return super.initKey("Shift Multiply");
+        return super.initSingleKey("Shift Multiply");
     }
 
+    @Override
     public int computeChar(int currentChar, int key, EActionEncryptOrDecrypt eActionEncryptOrDecrypt) {
         if (key % 2 == 0)
             key += 1;

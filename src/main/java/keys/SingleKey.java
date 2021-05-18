@@ -18,15 +18,18 @@ public class SingleKey extends Key {
         value = r.nextInt(Constants.MAX_ASCII_VALUE) + 1;
     }
 
+    @Override
     public String toString() {
         return String.valueOf(value);
     }
 
+    @Override
     protected Object clone()
             throws CloneNotSupportedException {
         return super.clone();
     }
 
+    @Override
     public int getKeyStrength() {
         int keyValue = value;
         int strength = 1;
@@ -37,10 +40,12 @@ public class SingleKey extends Key {
         return strength;
     }
 
+    @Override
     public String getType() {
         return encryptionType;
     }
 
+    @Override
     public void getNextKey() {
         value++;
         if (value == Constants.MAX_ASCII_VALUE + 1)

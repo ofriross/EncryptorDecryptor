@@ -7,19 +7,21 @@ import keys.SingleKey;
 import enums.EActionEncryptOrDecrypt;
 
 import java.util.ArrayList;
-//TODO: combine abstract and interface if needed
 public abstract class BasicEncryption implements IEncryptionAlgorithm {
     protected SingleKey singleKey;
+
 
     public String getType() {
         return singleKey.getType();
     }
 
+    @Override
     public <T extends Key> String performEncryption(String data, T key) {
         int keyValue = ((SingleKey) key).getValue();
         return encryptDecrypt(data, keyValue, this, EActionEncryptOrDecrypt.encrypt);
     }
 
+    @Override
     public String performDecryption(String data, ArrayList<Integer> keys) {
         String decryptedData = null;
         for (Integer key : keys)
@@ -27,7 +29,7 @@ public abstract class BasicEncryption implements IEncryptionAlgorithm {
         return decryptedData;
     }
 
-    public Key initKey(String encryptionType) {
+    public Key initSingleKey(String encryptionType) {
         this.singleKey = new SingleKey(encryptionType);
         return singleKey;
     }
@@ -46,6 +48,7 @@ public abstract class BasicEncryption implements IEncryptionAlgorithm {
 
     public abstract int computeChar(int currentChar, int key, EActionEncryptOrDecrypt EActionEncryptOrDecrypt);
 
+    @Override
     public int getKeyStrength() {
         return singleKey.getKeyStrength();
     }
