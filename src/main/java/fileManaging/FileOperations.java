@@ -13,7 +13,7 @@ public class FileOperations {
             while ((currentChar = fr.read()) != -1)
                 data.append((char) currentChar);
         } catch (IOException exception) {
-            throw new FileNotFoundException("An error occurred while trying to read the file '" + fileName + "'.");
+            throw new FileNotFoundException("An error occurred while trying to read the FILE '" + fileName + "'.");
         }
         return data.toString();
     }
@@ -42,7 +42,7 @@ public class FileOperations {
             myWriter.write(data);
             myWriter.close();
         } catch (IOException e) {
-            throw new IOException("The file '" + fileName + "' wasn't found");
+            throw new IOException("The FILE '" + fileName + "' wasn't found");
         }
     }
 
@@ -60,10 +60,10 @@ public class FileOperations {
         File folder = new File(directoryPath);
         File[] listOfFiles = folder.listFiles();
         if (listOfFiles == null)
-            throw new IOException("The folder '" + directoryPath + "' is empty or does not exist");
+            throw new IOException("The FOLDER '" + directoryPath + "' is empty or does not exist");
         for (File file : listOfFiles) {
             if (file.isFile() && file.getName().endsWith(".txt")) {
-                if (!file.getName().equals("key.txt"))
+                if (!file.getName().equals("KEY.txt"))
                     folderContent.add(file.getName());
             }
         }

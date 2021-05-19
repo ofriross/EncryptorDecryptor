@@ -4,6 +4,7 @@ import encryptionAlgorithms.IEncryptionAlgorithm;
 import keys.Key;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 
 public abstract class EncryptionAlgorithm implements IEncryptionAlgorithm {
     public static Class<?> TYPE;
@@ -14,6 +15,11 @@ public abstract class EncryptionAlgorithm implements IEncryptionAlgorithm {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public String performDecryption(String data, ArrayList<Integer> keys) {
+        return encryptionAlgorithm.performDecryption(data, keys);
     }
 
     protected Key key;
@@ -35,7 +41,6 @@ public abstract class EncryptionAlgorithm implements IEncryptionAlgorithm {
 
     @Inject
     public void setEncryptionAlgorithm(IEncryptionAlgorithm encryptionAlgorithm) {
-        System.out.println("heyo out");
         this.encryptionAlgorithm = encryptionAlgorithm;
     }
 }

@@ -1,15 +1,15 @@
 package keys;
 
+import enums.EBasicEncryptionType;
 import general.Constants;
 
 import java.util.Random;
 
 public class SingleKey extends Key {
-    // TODO: 18/05/2021 Make enum
-    private final String encryptionType;
-    private int value;
+    private final EBasicEncryptionType encryptionType;
+    private final int value;
 
-    public SingleKey(String encryptionType) {
+    public SingleKey(EBasicEncryptionType encryptionType) {
         this.encryptionType = encryptionType;
         value = new Random().nextInt(Constants.MAX_ASCII_VALUE) + 1;
     }
@@ -42,13 +42,6 @@ public class SingleKey extends Key {
 
     @Override
     public String getType() {
-        return encryptionType;
-    }
-
-    @Override
-    public void getNextKey() {
-        value++;
-        if (value == Constants.MAX_ASCII_VALUE + 1)
-            value = 0;
+        return encryptionType.getTypeName();
     }
 }

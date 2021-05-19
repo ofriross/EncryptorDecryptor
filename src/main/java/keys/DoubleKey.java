@@ -37,9 +37,4 @@ public class DoubleKey extends Key {
     public String getType() {
         return "Double of " + double1.getType();
     }
-
-    @Override
-    public void getNextKey() {
-        double1.getNextKey();
-    }
 }

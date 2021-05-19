@@ -34,10 +34,4 @@ public class RepeatEncryption extends EncryptionAlgorithm {
         }
         return encryption;
     }
-
-    // TODO: 18/05/2021 Put it in the father class
-    @Override
-    public String performDecryption(String data, ArrayList<Integer> keys) {
-        return encryptionAlgorithm.performDecryption(data, keys);
-    }
 }

@@ -14,6 +14,6 @@ public class FileOperationsTest {
 
     @Test(expected = IOException.class)
     public void writeFile() throws IOException {
-        FileOperations.writeFile("NotARealFileLocationToWriteInto:\\notARealFolder\\NotARealTextFile.txt", "data");
+        FileOperations.writeFile("NotARealFileLocationToWriteInto:\\notARealFolder\\NotARealTextFile.txt", "DATA");
     }
 }

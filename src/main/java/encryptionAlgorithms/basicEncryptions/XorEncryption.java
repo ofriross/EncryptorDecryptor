@@ -1,19 +1,20 @@
 package encryptionAlgorithms.basicEncryptions;
 
 import enums.EActionEncryptOrDecrypt;
+import enums.EBasicEncryptionType;
 import keys.Key;
 
 public class XorEncryption extends BasicEncryption {
 
     @Override
     public Key initKey() {
-        return super.initSingleKey("Xor");
+        return super.initSingleKey(EBasicEncryptionType.XOR);
     }
 
     @Override
     public int computeChar(int currentChar, int key, EActionEncryptOrDecrypt eActionEncryptOrDecrypt) {
         String binaryKey = Integer.toBinaryString(key);
-        /** make key and currentChar into a 8 digit binary number, with 0's from left to fill 8 digits */
+        /** make KEY and currentChar into a 8 digit binary number, with 0's from left to fill 8 digits */
         binaryKey = String.format("%8s", binaryKey).replaceAll(" ", "0");  // 8-bit Integer
         String binaryCurrentChar = Integer.toBinaryString(currentChar);
         binaryCurrentChar = String.format("%8s", binaryCurrentChar).replaceAll(" ", "0");  // 8-bit Integer

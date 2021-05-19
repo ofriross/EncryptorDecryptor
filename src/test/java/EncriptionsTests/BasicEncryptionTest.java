@@ -19,10 +19,10 @@ public class BasicEncryptionTest {
 
         int keyValue = 5;
         when(singleKey.getValue()).thenReturn(keyValue);
-        when(basicEncryptionMock.computeChar('a', keyValue, EActionEncryptOrDecrypt.encrypt)).thenReturn(Integer.valueOf('d'));
-        when(basicEncryptionMock.computeChar('b', keyValue, EActionEncryptOrDecrypt.encrypt)).thenReturn(Integer.valueOf('c'));
-        when(basicEncryptionMock.computeChar('c', keyValue, EActionEncryptOrDecrypt.encrypt)).thenReturn(Integer.valueOf('b'));
-        when(basicEncryptionMock.computeChar('d', keyValue, EActionEncryptOrDecrypt.encrypt)).thenReturn(Integer.valueOf('a'));
+        when(basicEncryptionMock.computeChar('a', keyValue, EActionEncryptOrDecrypt.ENCRYPT)).thenReturn(Integer.valueOf('d'));
+        when(basicEncryptionMock.computeChar('b', keyValue, EActionEncryptOrDecrypt.ENCRYPT)).thenReturn(Integer.valueOf('c'));
+        when(basicEncryptionMock.computeChar('c', keyValue, EActionEncryptOrDecrypt.ENCRYPT)).thenReturn(Integer.valueOf('b'));
+        when(basicEncryptionMock.computeChar('d', keyValue, EActionEncryptOrDecrypt.ENCRYPT)).thenReturn(Integer.valueOf('a'));
         when(basicEncryptionMock.performEncryption(Mockito.any(), Mockito.any())).thenCallRealMethod();
 
         String actualResult = basicEncryptionMock.performEncryption("abcd", singleKey);
@@ -39,15 +39,15 @@ public class BasicEncryptionTest {
         keys.add(3);
         keys.add(4);
 
-        when(basicEncryptionMock.computeChar('a', 1, EActionEncryptOrDecrypt.decrypt)).thenReturn(Integer.valueOf('b'));
-        when(basicEncryptionMock.computeChar('b', 2, EActionEncryptOrDecrypt.decrypt)).thenReturn(Integer.valueOf('t'));
-        when(basicEncryptionMock.computeChar('t', 3, EActionEncryptOrDecrypt.decrypt)).thenReturn(Integer.valueOf('y'));
-        when(basicEncryptionMock.computeChar('y', 4, EActionEncryptOrDecrypt.decrypt)).thenReturn(Integer.valueOf('x'));
+        when(basicEncryptionMock.computeChar('a', 1, EActionEncryptOrDecrypt.DECRYPT)).thenReturn(Integer.valueOf('b'));
+        when(basicEncryptionMock.computeChar('b', 2, EActionEncryptOrDecrypt.DECRYPT)).thenReturn(Integer.valueOf('t'));
+        when(basicEncryptionMock.computeChar('t', 3, EActionEncryptOrDecrypt.DECRYPT)).thenReturn(Integer.valueOf('y'));
+        when(basicEncryptionMock.computeChar('y', 4, EActionEncryptOrDecrypt.DECRYPT)).thenReturn(Integer.valueOf('x'));
 
-        when(basicEncryptionMock.computeChar('b', 1, EActionEncryptOrDecrypt.decrypt)).thenReturn(Integer.valueOf('y'));
-        when(basicEncryptionMock.computeChar('y', 2, EActionEncryptOrDecrypt.decrypt)).thenReturn(Integer.valueOf('m'));
-        when(basicEncryptionMock.computeChar('m', 3, EActionEncryptOrDecrypt.decrypt)).thenReturn(Integer.valueOf('n'));
-        when(basicEncryptionMock.computeChar('n', 4, EActionEncryptOrDecrypt.decrypt)).thenReturn(Integer.valueOf('l'));
+        when(basicEncryptionMock.computeChar('b', 1, EActionEncryptOrDecrypt.DECRYPT)).thenReturn(Integer.valueOf('y'));
+        when(basicEncryptionMock.computeChar('y', 2, EActionEncryptOrDecrypt.DECRYPT)).thenReturn(Integer.valueOf('m'));
+        when(basicEncryptionMock.computeChar('m', 3, EActionEncryptOrDecrypt.DECRYPT)).thenReturn(Integer.valueOf('n'));
+        when(basicEncryptionMock.computeChar('n', 4, EActionEncryptOrDecrypt.DECRYPT)).thenReturn(Integer.valueOf('l'));
 
         when(basicEncryptionMock.performDecryption(Mockito.any(), Mockito.any())).thenCallRealMethod();
 

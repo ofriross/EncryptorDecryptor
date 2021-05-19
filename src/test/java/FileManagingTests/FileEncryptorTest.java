@@ -29,8 +29,8 @@ public class FileEncryptorTest {
         //TODO: add this back //fileEncryptor.encryptFolder(filesLocations);
         //TODO: add this back //fileEncryptor.decryptFolder(filesLocations);
 
-        String originalData = "";
-        String actualData = "";
+        String originalData;
+        String actualData;
         try {
             originalData = FileOperations.readFile(fileIn);
             actualData = FileOperations.readFile(Path.of(filesLocations, Constants.DECRYPT_FOLDER_NAME, "testEncryptDecrypt.txt").toString());
@@ -70,7 +70,7 @@ public class FileEncryptorTest {
         decryptionNameAndContents.add(new FileNameAndContent("file3.txt", "after3"));
 
         fileOperationsMockedStatic.when(() -> FileOperations.readDirectory(directoryLocationEncrypted)).thenReturn(fileNameAndContents);
-        fileOperationsMockedStatic.when(() -> FileOperations.readFile(directoryLocationEncrypted + "\\key.txt")).thenReturn("1,2,3");
+        fileOperationsMockedStatic.when(() -> FileOperations.readFile(directoryLocationEncrypted + "\\KEY.txt")).thenReturn("1,2,3");
         fileOperationsMockedStatic.when(() -> FileOperations.createDirectory(any(), any())).thenCallRealMethod();
         fileOperationsMockedStatic.when(() -> FileOperations.writeMultipleFilesToDirectory(any(), any())).thenCallRealMethod();
         fileOperationsMockedStatic.when(() -> FileOperations.writeFile(any(), any())).thenCallRealMethod();
@@ -78,7 +78,7 @@ public class FileEncryptorTest {
         fileOperationsMockedStatic.when(() -> FileOperations.readFile(mainDirectory + "\\decrypted\\file1.txt")).thenCallRealMethod();
         fileOperationsMockedStatic.when(() -> FileOperations.readFile(mainDirectory + "\\decrypted\\file2.txt")).thenCallRealMethod();
         fileOperationsMockedStatic.when(() -> FileOperations.readFile(mainDirectory + "\\decrypted\\file3.txt")).thenCallRealMethod();
-        //fileOperationsMockedStatic.when(() -> FileOperations.writeFile(directoryLocationEncrypted + "\\key.txt",any())).
+        //fileOperationsMockedStatic.when(() -> FileOperations.writeFile(directoryLocationEncrypted + "\\KEY.txt",any())).
 
         ArrayList<Integer> keys = new ArrayList<>();
         keys.add(1);
@@ -137,7 +137,7 @@ public class FileEncryptorTest {
         IEncryptionAlgorithm encryptionAlgorithmMock = mock(IEncryptionAlgorithm.class);
 
         MockedStatic<FileOperations> fileOperationsMockedStatic = Mockito.mockStatic(FileOperations.class);
-        fileOperationsMockedStatic.when(() -> FileOperations.readFile("directory\\encrypted\\key.txt")).thenReturn(keys);
+        fileOperationsMockedStatic.when(() -> FileOperations.readFile("directory\\encrypted\\KEY.txt")).thenReturn(keys);
 
         FileEncryptor fileEncryptor = new FileEncryptor(encryptionAlgorithmMock);
         fileEncryptor.decryptFolder("directory");

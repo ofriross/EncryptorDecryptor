@@ -35,9 +35,4 @@ public class RepeatKey extends Key {
     public String getType() {
         return "Repeat of " + repeatN + " times of " + repeatedKey.getType();
     }
-
-    @Override
-    public void getNextKey() {
-        repeatedKey.getNextKey();
-    }
 }

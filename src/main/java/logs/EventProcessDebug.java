@@ -15,11 +15,11 @@ public class EventProcessDebug {
         String encryptDecrypt = actionEncryptOrDecrypt.toString();
         String dataString = data.get();
         if (progress == EProgress.start)
-            return "The " + encryptDecrypt + "ion for file " + Path.of(System.getProperty("user.dir"), inputSourcePath).toString() + " with algorithm " +
-                    encryptionAlgorithm.getType() + ", received the data '" + dataString + "' in time: " +
+            return "The " + encryptDecrypt + "ion for FILE " + Path.of(System.getProperty("user.dir"), inputSourcePath).toString() + " with algorithm " +
+                    encryptionAlgorithm.getType() + ", received the DATA '" + dataString + "' in time: " +
                     time + "(milliseconds).";
-        return "The " + encryptDecrypt + "ion for file " + Path.of(System.getProperty("user.dir"), inputSourcePath).toString() + " with algorithm " +
-                encryptionAlgorithm.getType() + ", will write the " + encryptDecrypt + "ed data:'" +
-                dataString + "' to file " + Path.of(System.getProperty("user.dir"), outPutSourcePath).toString() + " in time: " + time + "(milliseconds).";
+        return "The " + encryptDecrypt + "ion for FILE " + Path.of(System.getProperty("user.dir"), inputSourcePath).toString() + " with algorithm " +
+                encryptionAlgorithm.getType() + ", will write the " + encryptDecrypt + "ed DATA:'" +
+                dataString + "' to FILE " + Path.of(System.getProperty("user.dir"), outPutSourcePath).toString() + " in time: " + time + "(milliseconds).";
     }
 }

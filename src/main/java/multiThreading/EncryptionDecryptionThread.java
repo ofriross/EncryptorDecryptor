@@ -28,7 +28,7 @@ public class EncryptionDecryptionThread implements Runnable {
 
     @Override
     public void run() {
-        if (actionEncryptOrDecrypt == EActionEncryptOrDecrypt.encrypt) {
+        if (actionEncryptOrDecrypt == EActionEncryptOrDecrypt.ENCRYPT) {
             try {
                 fileEncryptor.encryptFile(Path.of(directoryPath, fileName).toString(),
                         Path.of(directoryPath, Constants.ENCRYPT_FOLDER_NAME, fileName).toString(),
@@ -37,7 +37,7 @@ public class EncryptionDecryptionThread implements Runnable {
                 EncryptionLogger.addLog(Optional.of(exception.toString()), fileEncryptor.getEncryptionAlgorithm(),
                         Path.of(directoryPath, Constants.ENCRYPT_FOLDER_NAME, fileName).toString(),
                         Path.of(directoryPath, Constants.DECRYPT_FOLDER_NAME, fileName).toString(),
-                        new Date().getTime(), EActionEncryptOrDecrypt.encrypt, EInputType.folder,
+                        new Date().getTime(), EActionEncryptOrDecrypt.ENCRYPT, EInputType.FOLDER,
                         EProgress.end, EEventType.exception);
                 exception.printStackTrace();
             }
@@ -50,7 +50,7 @@ public class EncryptionDecryptionThread implements Runnable {
                 EncryptionLogger.addLog(Optional.of(exception.toString()), fileEncryptor.getEncryptionAlgorithm(),
                         Path.of(directoryPath, Constants.ENCRYPT_FOLDER_NAME, fileName).toString(),
                         Path.of(directoryPath, Constants.DECRYPT_FOLDER_NAME, fileName).toString(),
-                        new Date().getTime(), EActionEncryptOrDecrypt.decrypt, EInputType.folder,
+                        new Date().getTime(), EActionEncryptOrDecrypt.DECRYPT, EInputType.FOLDER,
                         EProgress.end, EEventType.exception);
                 exception.printStackTrace();
             }

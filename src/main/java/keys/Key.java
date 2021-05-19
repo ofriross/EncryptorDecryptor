@@ -12,6 +12,4 @@ public abstract class Key {
     public abstract int getKeyStrength();
 
     public abstract String getType();
-
-    public abstract void getNextKey();
 }

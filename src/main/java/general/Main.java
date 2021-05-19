@@ -39,9 +39,9 @@ public class Main {
         if (encryptionAlgorithm == null)
             return;
 
-        Injector injector = Guice.createInjector(new EncryptionInjector());
+        /*Injector injector = Guice.createInjector(new EncryptionInjector());
 
-        encryptionAlgorithm = injector.getInstance(DoubleEncryption.class);
+        encryptionAlgorithm = injector.getInstance(DoubleEncryption.class);*/
 
         new ASyncDirectoryProcessor().encryptAndDecryptFolder(Optional.of(10), directory, encryptionAlgorithm);
         System.out.println();
