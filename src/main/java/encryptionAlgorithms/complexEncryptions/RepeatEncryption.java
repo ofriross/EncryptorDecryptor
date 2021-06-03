@@ -1,10 +1,9 @@
 package encryptionAlgorithms.complexEncryptions;
 
-import encryptionAlgorithms.IEncryptionAlgorithm;
+import encryptionAlgorithms.rest.IEncryptionAlgorithm;
 import keys.Key;
 import keys.RepeatKey;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class RepeatEncryption extends EncryptionAlgorithm {

@@ -1,6 +1,6 @@
 package encryptionAlgorithms.basicEncryptions;
 
-import encryptionAlgorithms.IEncryptionAlgorithm;
+import encryptionAlgorithms.rest.IEncryptionAlgorithm;
 import enums.EActionEncryptOrDecrypt;
 import enums.EBasicEncryptionType;
 import general.Constants;
@@ -14,11 +14,20 @@ public abstract class BasicEncryption implements IEncryptionAlgorithm {
 
     private String encryptDecrypt(String data, int key, EActionEncryptOrDecrypt action) {
         StringBuilder encryption = new StringBuilder(data);
+        ArrayList<Integer> encryptionChars = new ArrayList<>();
         for (int index = 0; index < data.length(); index++) {
-            int currentChar = computeChar(data.charAt(index), key, action);
-            currentChar = getNumberToRange(currentChar, Constants.MAX_ASCII_VALUE + 1);
-            encryption.setCharAt(index, (char) currentChar);
+            encryptionChars.add(computeChar(data.charAt(index), key, action));
+//            currentChar = getNumberToRange(currentChar, Constants.MAX_ASCII_VALUE + 1);
+//            encryption.setCharAt(index, (char) currentChar);
         }
+        encryptionChars.forEach((n) -> {
+            getNumberToRange(n, Constants.MAX_ASCII_VALUE + 1);
+        });
+        int i = 0;
+        encryptionChars.forEach((n) -> {
+            encryption.setCharAt(i, (char) n.intValue());
+        });
+        System.out.println("------------------------------"+encryption);
         return encryption.toString();
     }
 

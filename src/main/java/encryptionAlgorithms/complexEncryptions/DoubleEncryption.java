@@ -1,12 +1,11 @@
 package encryptionAlgorithms.complexEncryptions;
 
-import encryptionAlgorithms.IEncryptionAlgorithm;
+import encryptionAlgorithms.rest.IEncryptionAlgorithm;
 import encryptionAlgorithms.basicEncryptions.ShiftUpEncryption;
 import keys.DoubleKey;
 import keys.Key;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
 
 public class DoubleEncryption extends EncryptionAlgorithm {
     public DoubleEncryption(IEncryptionAlgorithm encryptionAlgorithm) {

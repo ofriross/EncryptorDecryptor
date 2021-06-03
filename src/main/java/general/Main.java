@@ -1,10 +1,6 @@
 package general;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import encryptionAlgorithms.EncryptionInjector;
-import encryptionAlgorithms.IEncryptionAlgorithm;
-import encryptionAlgorithms.complexEncryptions.DoubleEncryption;
+import encryptionAlgorithms.rest.IEncryptionAlgorithm;
 import encryptionAlgorithms.complexEncryptions.EncryptionAlgorithm;
 import externalSources.InputData;
 import externalSources.JsonHandler;
@@ -100,7 +96,7 @@ public class Main {
                 e.printStackTrace();
             }
             try {
-                Class<?> encryptionClassArgument = Class.forName("encryptionAlgorithms.IEncryptionAlgorithm");
+                Class<?> encryptionClassArgument = Class.forName("encryptionAlgorithms.rest.IEncryptionAlgorithm");
                 encryptionAlgorithm = (EncryptionAlgorithm) encryptionAlgorithmClass.getDeclaredConstructor(encryptionClassArgument).newInstance(encryptionAlgorithm);
             } catch (InstantiationException | NoSuchMethodException | InvocationTargetException | IllegalAccessException | ClassNotFoundException e) {
                 e.printStackTrace();

@@ -2,10 +2,12 @@ package EncriptionsTests;
 
 import encryptionAlgorithms.basicEncryptions.BasicEncryption;
 import enums.EActionEncryptOrDecrypt;
+import fileManaging.FileOperations;
 import keys.SingleKey;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
@@ -14,6 +16,12 @@ import static org.mockito.Mockito.when;
 public class BasicEncryptionTest {
     @Test
     public void performEncryption() {
+        try {
+            String str = FileOperations.readFile("C:\\Users\\Ofek\\IdeaProjects\\EncryptorDecryptor\\debuggingFiles\\txt1.txt");
+        } catch (FileNotFoundException exception) {
+            exception.printStackTrace();
+        }
+
         BasicEncryption basicEncryptionMock = Mockito.mock(BasicEncryption.class);
         SingleKey singleKey = Mockito.mock(SingleKey.class);
 

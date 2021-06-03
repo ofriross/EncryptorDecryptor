@@ -1,4 +1,4 @@
-package encryptionAlgorithms;
+package encryptionAlgorithms.rest;
 
 import keys.Key;
 

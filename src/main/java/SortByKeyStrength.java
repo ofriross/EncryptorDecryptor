@@ -1,4 +1,4 @@
-import encryptionAlgorithms.IEncryptionAlgorithm;
+import encryptionAlgorithms.rest.IEncryptionAlgorithm;
 
 import java.util.Comparator;
 

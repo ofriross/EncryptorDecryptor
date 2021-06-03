@@ -1,6 +1,6 @@
 package enums;
 
-import encryptionAlgorithms.IEncryptionAlgorithm;
+import encryptionAlgorithms.rest.IEncryptionAlgorithm;
 import logs.EventException;
 import logs.EventProcess;
 import logs.EventProcessDebug;

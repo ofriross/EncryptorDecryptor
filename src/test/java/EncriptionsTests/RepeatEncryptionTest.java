@@ -1,6 +1,6 @@
 package EncriptionsTests;
 
-import encryptionAlgorithms.IEncryptionAlgorithm;
+import encryptionAlgorithms.rest.IEncryptionAlgorithm;
 import encryptionAlgorithms.complexEncryptions.RepeatEncryption;
 import keys.RepeatKey;
 import org.junit.Test;

@@ -1,7 +1,7 @@
 /*package MultiThreading;
 
 import FileManaging.FileEncryptor;
-import encryptionAlgorithms.IEncryptionAlgorithm;
+import encryptionAlgorithms.rest.IEncryptionAlgorithm;
 
 public class SyncDirectoryProcessor implements IDirectoryProcessor {
     private final EncryptionDecryptionThread encryptionDecryptionThread;
@@ -23,7 +23,7 @@ public class SyncDirectoryProcessor implements IDirectoryProcessor {
 }*/
 package multiThreading;
 
-import encryptionAlgorithms.IEncryptionAlgorithm;
+import encryptionAlgorithms.rest.IEncryptionAlgorithm;
 
 import java.util.Optional;
 

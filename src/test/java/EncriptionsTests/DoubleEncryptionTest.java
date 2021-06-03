@@ -1,6 +1,6 @@
 package EncriptionsTests;
 
-import encryptionAlgorithms.IEncryptionAlgorithm;
+import encryptionAlgorithms.rest.IEncryptionAlgorithm;
 import encryptionAlgorithms.complexEncryptions.DoubleEncryption;
 import keys.DoubleKey;
 import org.junit.Test;
